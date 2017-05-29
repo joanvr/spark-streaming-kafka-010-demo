@@ -34,7 +34,7 @@ $ docker exec -i kafkadocker_kafka_1 /opt/kafka/bin/kafka-console-producer.sh \
 
 ## Running the Demo
 
-Once the kafka cluster + zookeeper is up and running, you can start the demo with your IDE of choice importing the maven `pom.xml`, or you can build it from shell with maven and launch the generated jar (it's a shaded fat jar including all the dependencies)
+Once the kafka cluster + zookeeper is up and running, you can start the demo with your IDE of choice importing the maven `pom.xml`, or you can build it from shell with maven and launch the generated jar (it's a shared fat jar including all the dependencies)
 
 ```
 $ mvn clean package
