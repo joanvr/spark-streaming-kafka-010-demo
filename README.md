@@ -1,8 +1,8 @@
 # Spark Streaming + Kafka 0.10 Demo
 
-This demo and [those slides](https://www.slideshare.net/JoanViladrosaRiera/spark-streaming-kafka-010) were used in [Spark Barcelona Meetup](https://www.meetup.com/es-ES/Spark-Barcelona/events/240088002/). I hope all of you found it interesting, and I would like to share it to improve our community :) 
+This demo and [slides](https://www.slideshare.net/JoanViladrosaRiera/spark-streaming-kafka-010) were used in the [Spark Barcelona Meetup](https://www.meetup.com/es-ES/Spark-Barcelona/events/240088002/). I hope all of you found it interesting, and I would like to share it to improve our community :) 
 
-The purpose was to show a brief history of spark streaming + kafka evolution over the time and some code to make it run. Here is a little demo on how to connect to kafka from Spark Streaming, do some transformations (actually a word count splitting lines), and outputting  data to a local directory.
+The purpose was to show a brief history of spark streaming + kafka evolution over the time and some code to make it run. Here is a little demo on how to connect to kafka from Spark Streaming, do some transformations (actually a word count splitting lines), and outputting data to a local directory.
 
 Feel free to use it wherever you want, or for whatever purpose, just let me know because I'd love to hear about your work :)
 
@@ -20,7 +20,7 @@ docker-compose -f kafka-docker/docker-compose.yml down
 ```
 The ports are `2181` for ZooKeeper and `9092` for Kafka
 
-Obiously you can run your own local kafka cluster to run the demo, but make sure the version is >= `0.10` (as is needed for the new spark streaming integration), and the advertised hostname is `127.0.0.1`, or just do it the docker-way because it's cooler ;)
+Obiously you can use your own local kafka cluster to run the demo, but make sure the version is >= `0.10` (as is needed for the new spark streaming integration), and the advertised hostname is `127.0.0.1`, or just do it the docker-way because it's cooler ;)
 
 
 ## Generating records to the topic
@@ -49,7 +49,7 @@ Probably the most interesting tab is the `Streaming` one, but feel free to look 
 
 ## About the code
 
-You can tune how fast your streaming app ingest data with `spark.streaming.kafka.maxRatePerPartition` property defined in the `SparkConf` object. If you are using the docker approach to create a local kafka cluster, take into consideration that there are 4 partitions in the `text` topic.
+You can tune how fast your streaming app ingests data with `spark.streaming.kafka.maxRatePerPartition` property defined in the `SparkConf` object. If you are using the docker approach to create a local kafka cluster, take into consideration that there are 4 partitions in the `text` topic.
 
 Also, take a look at `auto.offset.reset` and `enable.auto.commit`, to tune if commiting offsets automatically to kafka, or where to start on the topic when starting for the first time.
 
